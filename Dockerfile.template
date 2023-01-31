@@ -1,0 +1,16 @@
+{% extends bento_base_template %}
+
+{% block SETUP_BENTO_COMPONENTS %}
+RUN apt update && \
+    apt install -y \
+        git \
+        openssh-client \
+        zlib1g-dev \
+        libjpeg-dev \
+        libgl1-mesa-dev \
+        libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
+{{ super() }}
+{% endblock %}
+
